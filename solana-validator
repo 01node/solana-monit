@@ -1,0 +1,7 @@
+ check process solana-validator matching "solana-validator"
+   start program = "/bin/systemctl start solana-tds" timeout 5 s
+   stop  program = "/bin/systemctl stop solana-tds" timeout 5 s
+   if cpu usage > 60% for 1 cycles then alert
+   if cpu usage > 86% for 1 cycles then restart
+   if memory usage > 60%  for 1 cycles then alert
+   if memory usage > 86%  for 1 cycles then restart
